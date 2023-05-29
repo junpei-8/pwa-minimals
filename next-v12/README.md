@@ -1,4 +1,4 @@
-# Next.js with PWA
+# Next.js (v12) with PWA
 
 ## PWA ライブラリ
 
@@ -52,7 +52,27 @@ npm i next-pwa
 
 <br />
 
-### ３．画像を用意し `./public/` 配下に設置
+### ３．`./next.config.js` の作成・編集
+
+- [`./next.config.js`](./next.config.js)
+
+```javascript
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+};
+
+const withPWA = require('next-pwa')({
+  dest: 'public',
+});
+
+module.exports = withPWA(nextConfig);
+```
+
+<br>
+
+### ４．画像を用意し `./public/` 配下に設置
 
 ディレクトリは `./public/` で配下であればどこでも良い。今回は [`./public/icons/`](./public/icons/) 配下に設置した。
 
@@ -86,27 +106,7 @@ npm i next-pwa
 
 <br />
 
-### ４．`./next.config.js` の作成・編集
-
-- [`./next.config.js`](./next.config.js)
-
-```javascript
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-};
-
-const withPWA = require("next-pwa")({
-  dest: "public",
-});
-
-module.exports = withPWA(nextConfig);
-```
-
-<br>
-
-### ４．`./public/manifest.json` の作成
+### ５．`./public/manifest.json` の作成
 
 以下のファイルを参照する。
 
@@ -116,7 +116,7 @@ module.exports = withPWA(nextConfig);
 
 <br />
 
-### ５．`./pages/_document.tsx` を作成・編集
+### ６．`./pages/_document.tsx` を作成・編集
 
 以下のファイルを参照する。
 
@@ -150,8 +150,8 @@ IOS で PWA を使用する場合は以下の設定が必要。
 ## 追加で行った変更（任意）
 
 - Prettier の導入
-  - `./.vscode/settings.json` の追加
-  - `./.prettierrc.json` の追加
+  - [`./.vscode/settings.json`](./.vscode/settings.json) の追加
+  - [`./.prettierrc.json`](./.prettierrc.json) の追加
 
 <br />
 
