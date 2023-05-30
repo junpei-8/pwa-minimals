@@ -28,8 +28,6 @@ or
 npm create next-app@v12 --typescript
 ```
 
-＊ 今回は`pnpm`で進める
-
 <br />
 
 ### ２．PWA ライブラリのインストール
